@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/biometric-atm-system.iml" filepath="$PROJECT_DIR$/biometric-atm-system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/biometric-service/biometric-service.iml" filepath="$PROJECT_DIR$/biometric-service/biometric-service.iml" />
     </modules>
   </component>
 </project>
