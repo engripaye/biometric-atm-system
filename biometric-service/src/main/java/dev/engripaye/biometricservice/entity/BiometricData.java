@@ -13,13 +13,15 @@ public class BiometricData {
     @Column(nullable = false, unique = true, length = 64)
     private String fingerprintHash;
 
-    public BiometricData() {
 
-    }
 
     public BiometricData(Long id, String fingerprintHash) {
         this.id = id;
         this.fingerprintHash = fingerprintHash;
+    }
+
+    public BiometricData() {
+
     }
 
     public Long getId() {

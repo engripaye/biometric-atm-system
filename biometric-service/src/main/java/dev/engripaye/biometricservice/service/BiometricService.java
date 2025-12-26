@@ -24,9 +24,8 @@ public class BiometricService {
         // check if fingerprint already exist
         BiometricData data = biometricRepository
                 .findByFingerprintHash(hash)
-                .orElseGet(() -> biometricRepository.save(
-                        new BiometricData(hash)
-                ));
+                .orElseGet(() ->
+                        biometricRepository.save(new BiometricData(hash)));
 
         return new BiometricResponse(
                 data.getId(),
