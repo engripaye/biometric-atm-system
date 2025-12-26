@@ -1,6 +1,5 @@
 package dev.engripaye.biometricservice.entity;
 
-
 import jakarta.persistence.*;
 
 @Entity
@@ -8,35 +7,26 @@ import jakarta.persistence.*;
 public class BiometricData {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false, unique = true, length = 64)
     private String fingerprintHash;
 
-
-
-    public BiometricData(Long id, String fingerprintHash) {
-        this.id = id;
-        this.fingerprintHash = fingerprintHash;
+    // Required by JPA
+    protected BiometricData() {
     }
 
-    public BiometricData() {
-
+    // ✅ THIS is the constructor your service needs
+    public BiometricData(String fingerprintHash) {
+        this.fingerprintHash = fingerprintHash;
     }
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getFingerprintHash() {
         return fingerprintHash;
-    }
-
-    public void setFingerprintHarsh(String fingerprintHash) {
-        this.fingerprintHash = fingerprintHash;
     }
 }

@@ -11,28 +11,23 @@ public class BiometricService {
 
     private final BiometricRepository biometricRepository;
 
-
     public BiometricService(BiometricRepository biometricRepository) {
         this.biometricRepository = biometricRepository;
     }
 
-    public BiometricResponse processFingerprint(String rawFingerprint){
+    public BiometricResponse processFingerprint(String rawFingerprint) {
 
-        // hash fingerprint
         String hash = DigestUtils.sha256Hex(rawFingerprint);
 
-        // check if fingerprint already exist
         BiometricData data = biometricRepository
                 .findByFingerprintHash(hash)
                 .orElseGet(() ->
-                        biometricRepository.save(new BiometricData(hash)));
+                        biometricRepository.save(new BiometricData(hash))
+                );
 
         return new BiometricResponse(
                 data.getId(),
                 data.getFingerprintHash()
         );
     }
-
-
-
 }
