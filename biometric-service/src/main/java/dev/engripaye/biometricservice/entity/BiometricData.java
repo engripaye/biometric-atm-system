@@ -22,8 +22,6 @@ public class BiometricData {
         this.fingerprintHash = fingerprintHash;
     }
 
-
-
     public Long getId() {
         return id;
     }
@@ -32,11 +30,11 @@ public class BiometricData {
         this.id = id;
     }
 
-    public String getFingerprintHarsh() {
+    public String getFingerprintHash() {
         return fingerprintHash;
     }
 
-    public void setFingerprintHarsh(String fingerprintHarsh) {
-        this.fingerprintHash = fingerprintHarsh;
+    public void setFingerprintHarsh(String fingerprintHash) {
+        this.fingerprintHash = fingerprintHash;
     }
 }

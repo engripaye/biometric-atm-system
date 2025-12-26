@@ -30,7 +30,7 @@ public class BiometricService {
 
         return new BiometricResponse(
                 data.getId(),
-                data.getFingerprintHarsh()
+                data.getFingerprintHash()
         );
     }
 
