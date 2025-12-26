@@ -11,15 +11,15 @@ public class BiometricData {
     @GeneratedValue
     private Long id;
     @Column(nullable = false, unique = true, length = 64)
-    private String fingerprintHarsh;
+    private String fingerprintHash;
 
     public BiometricData() {
 
     }
 
-    public BiometricData(Long id, String fingerprintHarsh) {
+    public BiometricData(Long id, String fingerprintHash) {
         this.id = id;
-        this.fingerprintHarsh = fingerprintHarsh;
+        this.fingerprintHash = fingerprintHash;
     }
 
 
@@ -33,10 +33,10 @@ public class BiometricData {
     }
 
     public String getFingerprintHarsh() {
-        return fingerprintHarsh;
+        return fingerprintHash;
     }
 
     public void setFingerprintHarsh(String fingerprintHarsh) {
-        this.fingerprintHarsh = fingerprintHarsh;
+        this.fingerprintHash = fingerprintHarsh;
     }
 }
