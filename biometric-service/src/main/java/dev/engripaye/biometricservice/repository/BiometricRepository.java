@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface BiometricRepository extends JpaRepository<BiometricData, Long> {
 
-    Optional<BiometricData> findByFingerprintHarsh(String fingerprintHash);
+    Optional<BiometricData> findByFingerprintHash(String fingerprintHash);
 }
