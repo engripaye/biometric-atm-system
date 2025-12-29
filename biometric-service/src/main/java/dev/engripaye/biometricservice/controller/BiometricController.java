@@ -17,6 +17,7 @@ public class BiometricController {
 
 
     public BiometricController(BiometricService biometricService) {
+
         this.biometricService = biometricService;
     }
 
@@ -28,4 +29,6 @@ public class BiometricController {
     public BiometricResponse scanFingerprint(@RequestBody @Valid BiometricRequest request) {
         return biometricService.processFingerprint(request.getFingerprint());
     }
+
+
 }

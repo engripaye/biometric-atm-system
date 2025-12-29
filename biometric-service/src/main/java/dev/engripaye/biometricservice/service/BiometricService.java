@@ -6,6 +6,8 @@ import dev.engripaye.biometricservice.repository.BiometricRepository;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BiometricService {
 
@@ -29,5 +31,15 @@ public class BiometricService {
                 data.getId(),
                 data.getFingerprintHash()
         );
+    }
+
+    public List<BiometricResponse> getAllBiometrics(){
+        return biometricRepository.findAll()
+                .stream()
+                .map(data -> new BiometricResponse(
+                        data.getId(),
+                        data.getFingerprintHash()
+                ))
+                .toList();
     }
 }
