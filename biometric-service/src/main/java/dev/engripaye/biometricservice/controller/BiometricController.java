@@ -4,10 +4,9 @@ import dev.engripaye.biometricservice.dtos.BiometricRequest;
 import dev.engripaye.biometricservice.dtos.BiometricResponse;
 import dev.engripaye.biometricservice.service.BiometricService;
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/biometric")
@@ -30,5 +29,9 @@ public class BiometricController {
         return biometricService.processFingerprint(request.getFingerprint());
     }
 
+    @GetMapping
+    public List<BiometricResponse> getAllBiometrics(){
+        return biometricService.getAllBiometrics();
+    }
 
 }
