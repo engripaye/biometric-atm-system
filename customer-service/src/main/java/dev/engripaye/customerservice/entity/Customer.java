@@ -46,4 +46,6 @@ public class Customer {
     public void setBiometricHash(String biometricHash) {
         this.biometricHash = biometricHash;
     }
+
+    // ENGR. IPAYE BABATUNDE 2026 OFFICIAL PROJECT
 }
