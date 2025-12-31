@@ -4,7 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 
 public class CreateCustomerRequest {
     @NotBlank
-    private String name;
+    private String fullName;
 
     @NotBlank
     private String biometricHash;
@@ -14,11 +14,11 @@ public class CreateCustomerRequest {
     }
 
     public String getName() {
-        return name;
+        return fullName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getBiometricHash() {

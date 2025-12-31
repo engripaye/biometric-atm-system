@@ -10,16 +10,16 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
-    private String name;
+    private String fullName;
     @Column(nullable = false, unique = true, length = 64)
     private String biometricHash;
 
     protected Customer() {
 
     }
-    public Customer(Long id, String name, String biometricHash) {
+    public Customer(Long id, String fullName, String biometricHash) {
         this.id = id;
-        this.name = name;
+        this.fullName = fullName;
         this.biometricHash = biometricHash;
     }
 
@@ -32,11 +32,11 @@ public class Customer {
     }
 
     public String getName() {
-        return name;
+        return fullName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getBiometricHash() {
