@@ -27,6 +27,22 @@ public class CustomerService {
 
         Customer saved = customerRepository.save(customer);
 
-        return CustomerResponse.
+        return CustomerResponse.builder()
+                .customerId(saved.getId())
+                .fullName(saved.getFullName())
+                .build();
+
+
+    }
+
+    public CustomerResponse identifyCustomer(String biometricHash){
+
+        Customer customer = customerRepository.findByBiometricHash(biometricHash)
+                .orElseThrow(() -> new RuntimeException("Customer Not found"));
+
+        return CustomerResponse.builder()
+                .customerId(customer.getId())
+                .fullName(customer.getFullName())
+                .build();
     }
 }

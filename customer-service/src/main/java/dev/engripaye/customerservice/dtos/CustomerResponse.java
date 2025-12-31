@@ -5,9 +5,12 @@ public class CustomerResponse {
     private Long customerId;
     private String fullName;
 
-    public CustomerResponse(Long customerId, String fullName) {
-        this.customerId = customerId;
-        this.fullName = fullName;
+    /**
+     * Constructor used internally by Builder
+     */
+    private CustomerResponse(Builder builder) {
+        this.customerId = builder.customerId;
+        this.fullName = builder.fullName;
     }
 
     public CustomerResponse(){
@@ -30,5 +33,35 @@ public class CustomerResponse {
         this.fullName = fullName;
     }
 
+      /* ==========================
+       BUILDER IMPLEMENTATION
+       ========================== */
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+
+        private Long customerId;
+        private String fullName;
+
+        private Builder() {
+        }
+
+        public Builder customerId(Long customerId) {
+            this.customerId = customerId;
+            return this;
+        }
+
+        public Builder fullName(String fullName) {
+            this.fullName = fullName;
+            return this;
+        }
+
+        public CustomerResponse build() {
+            return new CustomerResponse(this);
+        }
+    }
 
 }
