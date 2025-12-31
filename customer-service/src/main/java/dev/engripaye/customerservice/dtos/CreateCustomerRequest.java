@@ -13,11 +13,11 @@ public class CreateCustomerRequest {
 
     }
 
-    public String getName() {
+    public String getFullName() {
         return fullName;
     }
 
-    public void setName(String fullName) {
+    public void setFullName(String fullName) {
         this.fullName = fullName;
     }
 

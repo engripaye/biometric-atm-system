@@ -17,10 +17,13 @@ public class Customer {
     protected Customer() {
 
     }
-    public Customer(Long id, String fullName, String biometricHash) {
-        this.id = id;
-        this.fullName = fullName;
-        this.biometricHash = biometricHash;
+    /**
+     * Private constructor used ONLY by the Builder
+     */
+    private Customer(Builder builder) {
+        this.id = builder.id;
+        this.fullName = builder.fullName;
+        this.biometricHash = builder.biometricHash;
     }
 
     public Long getId() {
@@ -31,11 +34,11 @@ public class Customer {
         this.id = id;
     }
 
-    public String getName() {
+    public String getFullName() {
         return fullName;
     }
 
-    public void setName(String fullName) {
+    public void setFullName(String fullName) {
         this.fullName = fullName;
     }
 
@@ -45,6 +48,47 @@ public class Customer {
 
     public void setBiometricHash(String biometricHash) {
         this.biometricHash = biometricHash;
+    }
+
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+
+        private Long id;
+        private String fullName;
+        private String biometricHash;
+
+        private Builder() {
+        }
+
+        public Builder id(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder fullName(String fullName) {
+            this.fullName = fullName;
+            return this;
+        }
+
+        public Builder biometricHash(String biometricHash) {
+            this.biometricHash = biometricHash;
+            return this;
+        }
+
+        public Customer build() {
+            // Basic validation (optional but recommended)
+            if (fullName == null || fullName.isBlank()) {
+                throw new IllegalStateException("fullName must not be null or empty");
+            }
+            if (biometricHash == null || biometricHash.isBlank()) {
+                throw new IllegalStateException("biometricHash must not be null or empty");
+            }
+            return new Customer(this);
+        }
     }
 
     // ENGR. IPAYE BABATUNDE 2026 OFFICIAL PROJECT
